@@ -340,6 +340,18 @@ h3z-examples/
 
 如果这个项目帮助您学习了 Zig 或 H3z，请给一个 ⭐️！
 
+## 📱 在线演示
+
+我们提供了一个 GitHub Pages 网站，展示 H3z 框架的特性和示例：
+
+- [H3z Examples 演示网站](https://dg0230.github.io/h3z-examples/) - 浏览框架特性、示例代码和 API 文档
+
+在这个演示网站上，您可以：
+- 了解 H3z 框架的核心特性
+- 查看各种示例的代码片段
+- 浏览 API 端点文档
+- 获取安装和使用指南
+
 ## 🔗 相关链接
 
 - [H3z](https://github.com/Dg0230/h3z) - 轻量、快速且可组合的 HTTP 框架
