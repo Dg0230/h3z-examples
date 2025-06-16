@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>H3z Examples - 现代 Zig HTTP 框架示例</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>H3z Examples</h1>
+                <p class="subtitle">全面的 HTTP 服务器示例，基于 H3z 框架构建</p>
+                <div class="badges">
+                    <span class="badge"><i class="fab fa-github"></i> GitHub</span>
+                    <span class="badge"><i class="fas fa-code-branch"></i> Zig 0.14+</span>
+                    <span class="badge"><i class="fas fa-bolt"></i> 高性能</span>
+                    <span class="badge"><i class="fas fa-shield-alt"></i> 安全</span>
+                </div>
+                <div class="cta-buttons">
+                    <a href="https://github.com/your-username/h3z-examples" class="btn primary"><i class="fab fa-github"></i> 查看源码</a>
+                    <a href="#examples" class="btn secondary"><i class="fas fa-book"></i> 浏览示例</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="code-window">
+                    <div class="code-header">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                        <span class="code-title">basic_server.zig</span>
+                    </div>
+                    <pre class="code-content"><code>// 创建 H3z 应用
+var app = try h3.createApp(allocator);
+defer app.deinit();
+
+// 添加中间件
+_ = app.use(h3.middleware.logger);
+
+// 设置路由
+_ = app.get("/", homeHandler);
+_ = app.get("/hello/:name", helloHandler);
+_ = app.post("/api/echo", echoHandler);
+
+// 启动服务器
+try h3.serve(&app, .{ .port = 3000 });</code></pre>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="features">
+        <div class="container">
+            <h2>✨ 主要特性</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-server"></i></div>
+                    <h3>多种服务器模式</h3>
+                    <p>基本模式、安全模式和开发模式，满足不同场景需求</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-layer-group"></i></div>
+                    <h3>中间件系统</h3>
+                    <p>强大的中间件支持，包括日志、CORS、安全头和身份验证</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-route"></i></div>
+                    <h3>高级路由</h3>
+                    <p>参数提取、通配符路由、文件上传和身份验证中间件</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-exchange-alt"></i></div>
+                    <h3>REST API</h3>
+                    <p>完整的 CRUD 操作、JSON 处理、数据验证和错误响应</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>安全特性</h3>
+                    <p>CORS 保护、安全头、请求验证和身份验证</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-tachometer-alt"></i></div>
+                    <h3>高性能架构</h3>
+                    <p>基于 H3z 的轻量快速核心，提供卓越性能</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="examples" class="examples">
+        <div class="container">
+            <h2>📚 包含的示例</h2>
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="basic">基础服务器</button>
+                <button class="tab-btn" data-tab="multi">多模式服务器</button>
+                <button class="tab-btn" data-tab="middleware">中间件示例</button>
+                <button class="tab-btn" data-tab="routing">高级路由</button>
+                <button class="tab-btn" data-tab="rest">REST API</button>
+            </div>
+            <div class="tab-content">
+                <div class="tab-pane active" id="basic">
+                    <div class="example-content">
+                        <div class="example-description">
+                            <h3>基础服务器 (basic_server.zig)</h3>
+                            <p>展示 H3z 框架的基本功能，包括服务器设置、路由和请求/响应处理。</p>
+                            <ul class="feature-list">
+                                <li>简单的 HTTP 服务器设置</li>
+                                <li>基本路由和处理程序</li>
+                                <li>请求/响应处理</li>
+                                <li>HTML 和 JSON 响应</li>
+                            </ul>
+                            <div class="example-run">
+                                <code>zig build basic</code>
+                                <span class="port">端口: 3000</span>
+                            </div>
+                        </div>
+                        <div class="example-code">
+                            <div class="code-window">
+                                <div class="code-header">
+                                    <span class="dot red"></span>
+                                    <span class="dot yellow"></span>
+                                    <span class="dot green"></span>
+                                    <span class="code-title">basic_server.zig</span>
+                                </div>
+                                <pre class="code-content"><code>// 创建 H3z 应用
+var app = try h3.createApp(allocator);
+defer app.deinit();
+
+// 添加基本中间件
+_ = app.use(h3.middleware.logger);
+
+// 设置路由
+_ = app.get("/", homeHandler);
+_ = app.get("/hello/:name", helloHandler);
+_ = app.get("/api/status", statusHandler);
+_ = app.post("/api/echo", echoHandler);
+
+// 启动服务器
+try h3.serve(&app, .{ .port = 3000 });</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane" id="multi">
+                    <div class="example-content">
+                        <div class="example-description">
+                            <h3>多模式服务器 (multi_mode_server.zig)</h3>
+                            <p>展示如何创建具有多种操作模式的服务器，适应不同的使用场景。</p>
+                            <ul class="feature-list">
+                                <li>基本模式：开发的默认配置</li>
+                                <li>安全模式：具有安全特性的生产就绪配置</li>
+                                <li>开发模式：启用 CORS，宽松设置</li>
+                                <li>命令行模式切换</li>
+                            </ul>
+                            <div class="example-run">
+                                <code>zig build multi -- --mode=secure</code>
+                                <span class="port">端口: 3000/3001/3002</span>
+                            </div>
+                        </div>
+                        <div class="example-code">
+                            <div class="code-window">
+                                <div class="code-header">
+                                    <span class="dot red"></span>
+                                    <span class="dot yellow"></span>
+                                    <span class="dot green"></span>
+                                    <span class="code-title">multi_mode_server.zig</span>
+                                </div>
+                                <pre class="code-content"><code>// 添加模式特定中间件
+switch (mode) {
+    .basic => {
+        _ = app.use(h3.middleware.logger);
+    },
+    .secure => {
+        _ = app.use(h3.middleware.logger);
+        _ = app.use(h3.middleware.security);
+        _ = app.use(securityMiddleware);
+    },
+    .dev => {
+        _ = app.use(h3.middleware.logger);
+        _ = app.use(h3.middleware.cors);
+        _ = app.use(debugMiddleware);
+    },
+}</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane" id="middleware">
+                    <div class="example-content">
+                        <div class="example-description">
+                            <h3>中间件示例 (middleware_example.zig)</h3>
+                            <p>展示 H3z 中的中间件系统，包括内置和自定义中间件。</p>
+                            <ul class="feature-list">
+                                <li>自定义中间件实现</li>
+                                <li>内置中间件使用</li>
+                                <li>中间件链接</li>
+                                <li>请求/响应修改</li>
+                            </ul>
+                            <div class="example-run">
+                                <code>zig build middleware</code>
+                                <span class="port">端口: 3000</span>
+                            </div>
+                        </div>
+                        <div class="example-code">
+                            <div class="code-window">
+                                <div class="code-header">
+                                    <span class="dot red"></span>
+                                    <span class="dot yellow"></span>
+                                    <span class="dot green"></span>
+                                    <span class="code-title">middleware_example.zig</span>
+                                </div>
+                                <pre class="code-content"><code>// 添加中间件（按添加顺序执行）
+_ = app.use(requestTimingMiddleware); // 1. 计时请求
+_ = app.use(h3.middleware.logger); // 2. 记录请求
+_ = app.use(requestIdMiddleware); // 3. 添加请求 ID
+_ = app.use(h3.middleware.cors); // 4. 处理 CORS
+_ = app.use(h3.middleware.security); // 5. 添加安全头
+_ = app.use(requestValidationMiddleware); // 6. 验证请求
+_ = app.use(responseModificationMiddleware); // 7. 修改响应</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane" id="routing">
+                    <div class="example-content">
+                        <div class="example-description">
+                            <h3>高级路由 (advanced_routing.zig)</h3>
+                            <p>展示 H3z 中的高级路由功能，包括参数提取和通配符路由。</p>
+                            <ul class="feature-list">
+                                <li>从 URL 提取参数</li>
+                                <li>通配符路由</li>
+                                <li>文件上传处理</li>
+                                <li>身份验证中间件</li>
+                            </ul>
+                            <div class="example-run">
+                                <code>zig build advanced</code>
+                                <span class="port">端口: 3000</span>
+                            </div>
+                        </div>
+                        <div class="example-code">
+                            <div class="code-window">
+                                <div class="code-header">
+                                    <span class="dot red"></span>
+                                    <span class="dot yellow"></span>
+                                    <span class="dot green"></span>
+                                    <span class="code-title">advanced_routing.zig</span>
+                                </div>
+                                <pre class="code-content"><code>// 参数路由
+_ = app.get("/users/:id", userHandler);
+_ = app.get("/users/:id/posts/:post_id", userPostHandler);
+
+// 查询参数路由
+_ = app.get("/search", searchHandler);
+
+// 通配符路由
+_ = app.get("/static/*", staticFileHandler);
+
+// 受保护的路由
+const protected_route = app.get("/protected", protectedHandler);
+_ = protected_route.use(authMiddleware);</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane" id="rest">
+                    <div class="example-content">
+                        <div class="example-description">
+                            <h3>REST API (rest_api.zig)</h3>
+                            <p>展示使用 H3z 实现完整的 REST API，包括 CRUD 操作。</p>
+                            <ul class="feature-list">
+                                <li>完整的 CRUD 操作</li>
+                                <li>JSON 请求/响应处理</li>
+                                <li>数据验证</li>
+                                <li>错误响应</li>
+                                <li>API 版本控制</li>
+                            </ul>
+                            <div class="example-run">
+                                <code>zig build api</code>
+                                <span class="port">端口: 3000</span>
+                            </div>
+                        </div>
+                        <div class="example-code">
+                            <div class="code-window">
+                                <div class="code-header">
+                                    <span class="dot red"></span>
+                                    <span class="dot yellow"></span>
+                                    <span class="dot green"></span>
+                                    <span class="code-title">rest_api.zig</span>
+                                </div>
+                                <pre class="code-content"><code>// 用户 API (CRUD)
+_ = app.get("/api/v1/users", getUsersHandler);
+_ = app.get("/api/v1/users/:id", getUserHandler);
+_ = app.post("/api/v1/users", createUserHandler);
+_ = app.put("/api/v1/users/:id", updateUserHandler);
+_ = app.delete("/api/v1/users/:id", deleteUserHandler);
+
+// 产品 API (CRUD)
+_ = app.get("/api/v1/products", getProductsHandler);
+_ = app.post("/api/v1/products", createProductHandler);</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="installation">
+        <div class="container">
+            <h2>📦 安装和构建</h2>
+            <div class="installation-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>前提条件</h3>
+                        <ul>
+                            <li>Zig 0.14.0 或更高版本</li>
+                            <li>网络连接（用于下载依赖项）</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>克隆项目</h3>
+                        <div class="code-block">
+                            <pre><code>git clone https://github.com/your-username/h3z-examples.git
+cd h3z-examples</code></pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>构建项目</h3>
+                        <div class="code-block">
+                            <pre><code>zig build</code></pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>运行示例</h3>
+                        <div class="code-block">
+                            <pre><code># 基础服务器
+zig build basic
+
+# 多模式服务器
+zig build multi -- --mode=secure
+
+# 中间件示例
+zig build middleware</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="endpoints">
+        <div class="container">
+            <h2>📚 API 端点</h2>
+            <div class="endpoint-tables">
+                <div class="endpoint-table">
+                    <h3>基础服务器端点</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>方法</th>
+                                <th>路径</th>
+                                <th>描述</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>GET</td>
+                                <td>/</td>
+                                <td>带有 HTML 界面的主页</td>
+                            </tr>
+                            <tr>
+                                <td>GET</td>
+                                <td>/hello/:name</td>
+                                <td>个性化问候</td>
+                            </tr>
+                            <tr>
+                                <td>POST</td>
+                                <td>/api/echo</td>
+                                <td>回显请求体</td>
+                            </tr>
+                            <tr>
+                                <td>GET</td>
+                                <td>/api/status</td>
+                                <td>服务器状态</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="endpoint-table">
+                    <h3>REST API 端点</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>方法</th>
+                                <th>路径</th>
+                                <th>描述</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>GET</td>
+                                <td>/api/v1/users</td>
+                                <td>列出所有用户</td>
+                            </tr>
+                            <tr>
+                                <td>GET</td>
+                                <td>/api/v1/users/:id</td>
+                                <td>通过 ID 获取用户</td>
+                            </tr>
+                            <tr>
+                                <td>POST</td>
+                                <td>/api/v1/users</td>
+                                <td>创建新用户</td>
+                            </tr>
+                            <tr>
+                                <td>PUT</td>
+                                <td>/api/v1/users/:id</td>
+                                <td>更新用户</td>
+                            </tr>
+                            <tr>
+                                <td>DELETE</td>
+                                <td>/api/v1/users/:id</td>
+                                <td>删除用户</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>H3z Examples</h2>
+                    <p>全面的 HTTP 服务器示例，基于 H3z 框架构建</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-links-column">
+                        <h3>项目</h3>
+                        <ul>
+                            <li><a href="https://github.com/your-username/h3z-examples">GitHub 仓库</a></li>
+                            <li><a href="https://github.com/your-username/h3z-examples/issues">问题反馈</a></li>
+                            <li><a href="https://github.com/your-username/h3z-examples/blob/main/LICENSE">MIT 许可证</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-column">
+                        <h3>相关链接</h3>
+                        <ul>
+                            <li><a href="https://github.com/Dg0230/h3z">H3z 框架</a></li>
+                            <li><a href="https://ziglang.org/">Zig 编程语言</a></li>
+                            <li><a href="https://h3.dev">H3.js</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 H3z Examples. MIT 许可证。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
