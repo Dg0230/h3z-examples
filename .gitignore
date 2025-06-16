@@ -1,0 +1,59 @@
+# Zig build artifacts
+.zig-cache/
+zig-out/
+
+# Build outputs
+*.exe
+*.dll
+*.so
+*.dylib
+*.a
+*.lib
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# OS generated files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+*.tmp
+*.temp
+.tmp/
+
+# Dependencies (if using package managers)
+node_modules/
+.npm/
+
+# Environment files
+.env
+.env.local
+.env.production
+
+# Test outputs
+test-results/
+coverage/
+
+# Benchmark results
+benchmark-results/
+*.bench
+
+# Documentation build
+docs/build/
+site/
+
+# Local development
+local/
+dev/
+.local/

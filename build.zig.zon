@@ -1,0 +1,21 @@
+.{
+    .name = .h3z_examples,
+    .version = "0.1.0",
+    .minimum_zig_version = "0.14.0",
+    .fingerprint = 0xb671185e41a6d6c6,
+
+    .dependencies = .{
+        .h3z = .{
+            .url = "https://github.com/Dg0230/h3z/archive/main.tar.gz",
+            .hash = "h3-0.1.0-bQIcLdWLBgDpArcxprB4N6MEaeIZ1dFeoAWNAi5J1Yoz",
+        },
+    },
+
+    .paths = .{
+        "build.zig",
+        "build.zig.zon",
+        "src",
+        "README.md",
+        "LICENSE",
+    },
+}
